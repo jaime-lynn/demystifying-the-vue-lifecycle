@@ -551,6 +551,46 @@ export default {
 
 ---
 
+@snap[north span-100 text-05]
+### refs
+@snapend
+
+@snap[south span-100 code-05]
+```html
+<div ref="myDiv" class="text--navy">Hello!</div>
+
+<puppy-cmp ref="myPuppy"></puppy-cmp>
+
+<template v-for="kitten in kittens">
+  <kitten-cmp
+    ref="myKittens"
+    :kitten="kitten"
+    :key="kitten.id">
+  </kitten-cmp>
+</template>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      kittens: []
+    }
+  }
+  mounted() {
+    console.log(this.$refs.myDiv);
+    // <div class="text--navy">Hello!</div>
+    console.log(this.$refs.myCmp);
+    // returns the instance of puppy-cmp
+    console.log(this.$refs.myKittens);
+    // returns an array of component instances of kitten-cmp
+  }
+}
+```
+@snapend
+
+---
+
 @snap[north]
 ### Thank you!
 @snapend
