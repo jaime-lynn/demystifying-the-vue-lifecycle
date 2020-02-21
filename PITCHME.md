@@ -23,10 +23,6 @@ An overview of the Vue lifecycle with examples of when to use each lifecycle met
 ![The Vue Lifecycle](assets/lifecycle.png)
 @snapend
 
-@snap[east span-30 text-07]
-Note that if you are using the Composition API, `setup` is called after `beforeCreate` and right before `created`
-@snapend
-
 ---
 
 @snap[north span-100]
@@ -39,6 +35,16 @@ Note that if you are using the Composition API, `setup` is called after `beforeC
 Note:
 
 Example usage - note that you cannot use arrow functions as they break the binding of `this`
+
+---
+
+@snap[west span-60]
+![beforeCreate and created](assets/lifecycle-1.png)
+@snapend
+
+@snap[east span-40 text-07]
+Note that if you are using the Composition API, `setup` is called after `beforeCreate` and right before `created`
+@snapend
 
 ---
 
@@ -102,6 +108,12 @@ export default {
 Note:
 
 Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following has been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+
+---
+
+@snap[midpoint]
+![beforeMount and mounted](assets/lifecycle-2.png)
+@snapend
 
 ---
 
@@ -172,6 +184,12 @@ Note:
 
 Called after the instance has been mounted, where `el` is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
 **This hook is not called during server-side rendering.**
+
+---
+
+@snap[midpoint]
+![beforeUpdated and updated](assets/lifecycle-3.png)
+@snapend
 
 ---
 
@@ -256,6 +274,12 @@ updated() {
 }
 ```
 **This hook is not called during server-side rendering.**
+
+---
+
+@snap[midpoint]
+![beforeDestroy and destroyed](assets/lifecycle-4.png)
+@snapend
 
 ---
 
