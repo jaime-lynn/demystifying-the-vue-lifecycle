@@ -604,7 +604,7 @@ export default {
   mounted() {
     console.log(this.$refs.myDiv);
     // <div class="text--navy">Hello!</div>
-    console.log(this.$refs.myCmp);
+    console.log(this.$refs.myPuppy);
     // returns the instance of puppy-cmp
     console.log(this.$refs.myKittens);
     // returns an array of component instances of kitten-cmp
