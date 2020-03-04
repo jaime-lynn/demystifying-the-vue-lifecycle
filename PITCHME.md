@@ -1,6 +1,11 @@
 ### Demystifying the Vue Lifecycle
 @snap[text-07]
 Jaime Jones
+`@gameof_freckles`
+@snapend
+
+@snap[south span-100 text-08]
+gitpitch.com/jaime-lynn/demystifying-the-vue-lifecycle
 @snapend
 
 Note:
@@ -131,16 +136,17 @@ new Vue({
   el: '#app',
   data() {
     return {
-      entree: 'spaghetti'
+      serving: 'spaghetti'
     }
   },
-  template: '<div>{{ entree }}</div>',
+  template: '<div>{{ serving }}</div>',
   beforeMount() {
     console.log(this.$el); // <div id="app" data-dessert="cake"></div>
     console.log(this.$el.dataset.dessert); // cake
+    this.serving = this.$el.dataset.dessert;
   },
   mounted() {
-    console.log(this.$el); // <div>spaghetti</div>
+    console.log(this.$el); // <div>cake</div>
     console.log(this.$el.dataset.dessert); // undefined
   }
 });
@@ -466,7 +472,7 @@ export default {
         y: null
       }
     }
-  }
+  },
   deactivated() {
     this.previousScroll.x = window.scrollX;
     this.previousScroll.y = window.scrollY;
@@ -600,7 +606,7 @@ export default {
     return {
       kittens: []
     }
-  }
+  },
   mounted() {
     console.log(this.$refs.myDiv);
     // <div class="text--navy">Hello!</div>
